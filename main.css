@@ -47,7 +47,7 @@ body {
     border-radius: 5px;
     height: 400px;
     width: 60%;
-    min-width: 400px;
+    min-width: 325px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
