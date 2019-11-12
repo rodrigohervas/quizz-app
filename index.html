@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Us States capitals Quizz</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>US State capitals Quizz</h1>
+        </div>
+    </header>
+    <main class="main-content">
+        <section>
+            <div class="counter-container">
+                <div class="question-counter"><b>Question:</b> 5:10</div>
+                <div class="score-counter"><b>Score:</b> 2/10</div>
+            </div>
+        </section>
+        <div class="questions-container">
+
+            <section id="landing">
+                <h1 class="landing-question">How many State capitals do you know?</h1>
+                <button class="btn start"> Start Quizz </button>
+            </section>
+
+            <section id="question" class="hidden">
+                <h1 class="question">What is the capital of the State of Kentucky?</h1>
+                <div class="option">
+                    <input type="checkbox" id="1" name="1">
+                    <label for="1">Carson City</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="2" name="2">
+                    <label for="2">Annapolis</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="3" name="3">
+                    <label for="3">Frankfort</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="4" name="4">
+                    <label for="4">Santa Fe</label>
+                </div>
+                <button class="btn check"> Check Answer </button>
+            </section>
+
+            <section id="right-answer" class="hidden">
+                <h1 class="question">What is the capital of the State of Kentucky?</h1>
+                <p class="answer">Your answer is RIGHT!, the capital of the State of Kentucky is Frankfort!</p>
+                <button class="btn next"> Next Question </button>
+            </section>
+
+            <section id="wrong-answer" class="hidden">
+                <h1 class="question">What is the capital of the State of Kentucky?</h1>
+                <p class="answer">Your answer is WRONG!, the capital of the State of Kentucky is Frankfort!</p>
+                <button class="btn next"> Next Question </button>
+            </section>
+
+            <section id="summary" class="hidden">
+                <h1 class="landing-question">How many State capitals do you know?</h1>
+                <p class="answer">Your final score is 5 right out of 10 questions!</p>
+                <button class="btn restart"> Restart Quizz </button>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="quizz.js"></script>
+</body>
+
+</html>
