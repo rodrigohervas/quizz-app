@@ -46,7 +46,7 @@ body {
     border: 1px solid grey;
     border-radius: 5px;
     height: 400px;
-    width: 60%;
+    width: 80%;
     min-width: 325px;
     display: flex;
     flex-direction: column;

@@ -1,0 +1,86 @@
+State Capitals Quizz App - Questions:
+
+These questions will be dinamically generated in the code, but they'll all look the same way:
+
+
+1. What is the capital of the State of Washington?
+
+ . Olympia
+ . Nashville
+ . Tallahassee
+ . Des Moines
+
+
+
+2. What is the capital of the State of Wyoming?
+
+ . Montgomery
+ . Cheyenne
+ . Richmond
+ . Columbia
+
+
+3. What is the capital of the State of Alabama?
+
+ . Montgomery
+ . Pierre
+ . Boston
+ . Springfield
+
+
+4. What is the capital of the State of Nebraska?
+
+ . Lincoln
+ . Denver
+ . Raleigh
+ . Jackson
+
+
+5. What is the capital of the State of North Dakota?
+
+ . Santa Fe
+ . Des Moines
+ . Bismarck
+ . Frankfort
+
+
+6. What is the capital of the State of Maryland?
+
+ . Charleston
+ . Annapolis
+ . Baton Rouge
+ . Olympia
+
+
+7. What is the capital of the State of Kansas?
+ 
+ . Baton Rouge
+ . Austin
+ . Santa Fe
+ . Topeka
+
+
+8. What is the capital of the State of North Carolina?
+
+ . Raleigh
+ . Bismarck
+ . Madison
+ . Pierre
+
+
+9. What is the capital of the State of Colorado?
+ 
+ . Denver
+ . Olympia
+ . Augusta
+ . Montpelier
+
+
+10. What is the capital of the State of Wisconsin?
+ 
+ . Juneau
+ . Madison
+ . Pierre
+ . Lincoln
+
+
