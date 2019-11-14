@@ -2,6 +2,10 @@
  * IMPORTS
  */
 
+
+ /**
+  * stateCapitals contains all the data regarding the state capitals
+  */
 import { stateCapitals } from "./data.js";
 
 
@@ -10,6 +14,10 @@ import { stateCapitals } from "./data.js";
  * MODEL ENTITIES
  */
 
+
+/**
+ * userState stores all the data for the user's questions and answers progress
+ */ 
 let userState = {
     currentQuestion: 0,
     totalQuestions: 10, 
@@ -17,6 +25,9 @@ let userState = {
     wrongAnswers: 0
 };
 
+/**
+ * Question stores the question information needed to generate a question (capital id, state and state capital)
+ */
 class Question {
     constructor(id, state, capital) {
         this.id = id;
@@ -35,6 +46,10 @@ let question = null;
  * EVENT HANDLERS
  */
 
+
+ /**
+  * Event handler for btnStart, btnNext and btnRestart click() event
+  */
 function startQuiz() {
     $('#btnStart, #btnNext, #btnRestart').on('click', function (event) {
         
@@ -67,49 +82,30 @@ function startQuiz() {
 $(startQuiz);
 
 
+/**
+ * Event handler for answerForm.submit() 
+ */
 function checkAnswer() {
     $('#answerForm').on('submit', function (event) {
 
         //prevent submit
         event.preventDefault();
 
-        //get the selected checkbox
-        let option = $('section#question').find('.option'); //.html();
-        let radioSelected = option.find('input[name="answer"]:checked');
-        let checkedValue = radioSelected.attr('value');
-
-
-        //Validate if the option is correct and update userState object
-        let answerRight = false;
-        if (question.id == checkedValue) {
-            userState.correctAnswers++;
-            answerRight = true;
-        }
-        else {
-            userState.wrongAnswers++;
-        }
-
-        //render HTML with response
-        generateHTMLAnswer(question, answerRight);
-
-        //render userState in window
-        manageUserStateHTML(userState);
-
-        //console.log('in checkAnswer()');
-        
-        //manage window visibility
-        manageWindow('section#question');
-        manageWindow('section#answer-evaluator');
+        //check answer workflow
+        checkAnswerWorkflow();       
     });
 }
 $(checkAnswer);
-
 
 
 /**
  * WORKFLOWS
  */
 
+
+/**
+ * Function in charge of the question workflow
+ */
 function nextQuestion(actionType) {
     //create new question
     question = generateQuestion();
@@ -140,6 +136,34 @@ function nextQuestion(actionType) {
 
 }
 
+
+/**
+ * Function in charge of the check-answer workflow
+ */
+function checkAnswerWorkflow() {
+    //get the selected checkbox
+    const checkedValue = getSelectedAnswer();
+
+    //Validate if the option is correct and update userState object
+    const right = validateAnswer(checkedValue);
+
+    //render HTML with response
+    generateHTMLAnswer(question, right);
+
+    //render userState in window
+    manageUserStateHTML(userState);
+
+    //console.log('in checkAnswer()');
+    
+    //manage window visibility
+    manageWindow('section#question');
+    manageWindow('section#answer-evaluator');
+};
+
+
+/**
+ * Function in charge of the summary workflow
+ */
 function loadSummary() {
 console.log('in loadSummary()');
     //create and render summary
@@ -156,6 +180,10 @@ console.log('in loadSummary()');
  * HTML MANAGERS
  */
 
+
+/**
+ * Function in charge of creating and rendering the question html
+ */
 function generateHTMLQuestion(question) {
 
     //Add question
@@ -175,7 +203,9 @@ function generateHTMLQuestion(question) {
     currentOptions.html(options);
 };
 
-
+/**
+ * Function in charge of creating and rendering the answer-check html
+ */
 function generateHTMLAnswer(question, answerRight) {
 
     //Add question
@@ -203,6 +233,9 @@ function generateHTMLAnswer(question, answerRight) {
 };
 
 
+/**
+ * Function in charge of creating and rendering the summary html
+ */
 function generateHTMLSummary() {
 //console.log('in generateHTMLSummary()');
     //Add question
@@ -218,22 +251,62 @@ function generateHTMLSummary() {
 }
 
 
+/**
+ * Function in charge of getting the nselected answer value from the the question view
+ */
+function getSelectedAnswer(){
+    //get the selected checkbox
+    let option = $('section#question').find('.option');
+    let radioSelected = option.find('input[name="answer"]:checked');
+    let checkedValue = radioSelected.attr('value');
+    return checkedValue;
+};
+
+
+/**
+ * Function in charge of checking if the selected answer is correct/wrong, and
+ * also of updating the userState correct and wrong counters accordingly.
+ * 
+ * @param {number} value 
+ */
+function validateAnswer(value) {
+    if (question.id == value) {
+        userState.correctAnswers++;
+        return true;
+    }
+    userState.wrongAnswers++;
+    return false;
+};
+
+
+/**
+ * Function in charge of loading the user's answer progress in the top page counters
+ * 
+ * @param {object} userState 
+ */
 function manageUserStateHTML(userState) {
 
     let questionCounter = `<b>Question:</b> ${userState.currentQuestion}/10`;
     let scoreCounter = `<b>Score:</b> Right: ${userState.correctAnswers} / Wrong: ${userState.wrongAnswers}`;
-    //<b>Score:</b> Right: 0 / Wrong: 0
     $('.question-counter').html(questionCounter);
     $('.score-counter').html(scoreCounter);
 };
 
 
+/**
+ * Function in charge of managing the visibility of each section for rendering in the page
+ * 
+ * @param {HTML section} window 
+ */
 function manageWindow(window) {
     //console.log(`manageWindow(${window})`)
     $(window).toggleClass('hidden');
 };
 
 
+/**
+ * Function in charge of changing the text in btnNext for Summary view
+ */
 function changeButtonText(isSummary) {
     let btn = $('section#answer-evaluator').find('button#btnNext');
     let summaryText = 'Go To Summary';
@@ -252,6 +325,10 @@ function changeButtonText(isSummary) {
  * QUESTION AND INDEX GENERATORS
  */
 
+
+ /**
+  * Function in charge of generating a question
+  */
 function generateQuestion() {
     const index = generateIndex();
     let stateData = stateCapitals[index];
@@ -262,6 +339,13 @@ function generateQuestion() {
 };
 
 
+/**
+ * Function in charge of generating the answer options:
+ * a. generates three extra answers
+ * b. adds the correct answer to the array of answers
+ * 
+ * @param {number} stateId 
+ */
 function generateOptions(stateId) {
     let options = [];
     for (let i = 0; i < 3; i++) {
@@ -290,6 +374,10 @@ function generateOptions(stateId) {
     return options;
 }
 
+
+/**
+ * Helper function to generate random numbers, from 0 to 49, both inclusive
+ */
 //generates a number from 0 to 49, both inclusive
 function generateIndex() {
     const min = Math.ceil(0);

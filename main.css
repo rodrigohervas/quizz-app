@@ -8,12 +8,28 @@ body {
     size: 16px;
 }
 
+/*screen smaller than 510px*/
+@media screen and (max-width: 510px) {
+    
+    .header-container img {
+        display: none;
+    }
+}
+
+/*screen smaller than 376px*/
+@media screen and (max-width: 400px) {
+    
+    .header-container h1 {
+        font-size: 26px;
+    }
+}
+
 .header-container {
     height: 150px;
     background-color: #000000;
+
     display: flex;
-    align-content: center;
-    justify-content: center;
+    flex-direction: row;
 }
 
 .header-container h1 {
@@ -21,7 +37,13 @@ body {
     font-weight: 100;
     size: 42px;
     display: flex;
-    align-self: center;
+    align-self: center; /*vertical alignment*/
+    margin: auto;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
 }
 
 .container {
@@ -35,10 +57,9 @@ body {
 .counter-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin: 40px auto 0px auto;
-    
-    min-width: 320px;
 }
 
 .questions-container {
