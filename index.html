@@ -16,93 +16,63 @@
             <h1>US State capitals Quizz</h1>
         </div>
     </header>
-
+    
     <div class="container">
         <main class="main-content">
             <section>
                 <div class="counter-container">
-                    <div class="question-counter"><b>Question:</b> 7/10</div>
-                    <div class="score-counter"><b>Score:</b> Right: 5 / Wrong: 2</div>
+                    <div class="question-counter"><b>Question:</b> 0/10</div>
+                    <div class="score-counter"><b>Score:</b> Right: 0 / Wrong: 0</div>
                 </div>
             </section>
 
             <form id="answerForm" action="#">
-                
-                <!--LANDING SCREEN-->
                 <div class="questions-container">
                     <section id="landing">
                         <h1 class="landing-question">How many State capitals do you know?</h1>
                         <button id="btnStart" class="btn start"> Start Quizz </button>
                     </section>
-                </div>
 
-                <!--QUESTION SCREEN-->
-                <div class="questions-container">
-                    <section id="question">
+                    <section id="question" class="hidden">
                         <div class="main">
-                            <h1 class="question">What is the capital of the State of Pennsylvania?</h1>
+                            <h1>question</h1>
                         </div>
                         <div class="options">
-                            <div class="option">
-                                <input type="radio" name="answer" value="1" required> Boston
-                            </div>
-                            <div class="option">
-                                <input type="radio" name="answer" value="1" required> Trenton
-                            </div>
-                            <div class="option">
-                                <input type="radio" name="answer" value="1" required> Harrisburg
-                            </div>
-                            <div class="option">
-                                <input type="radio" name="answer" value="1" required> Jefferson City
-                            </div>
+                            option
                         </div>
                         <button id="btnCheck" type="submit" class="btn check"> Check Answer </button>
                     </section>
-                </div>
 
-                <!--FEEDBACK RIGHT ANSWER SCREEN-->
-                <div class="questions-container">
-                    <section id="answer-evaluator">
+                    <section id="answer-evaluator" class="hidden">
                         <div class="main">
-                            <h1 class="question">Your answer for the capital of Maryland is:</h1>
+                            <h1>question</h1>
                         </div>
                         <div class="answer">
-                            <p>Your answer is RIGHT!, the capital of the State of Maryland is Annapolis!</p>
+                            <p>answer</p>
                         </div>
                         <button id="btnNext" class="btn next"> Next Question </button>
                     </section>
-                </div>
 
-                <!--FEEDBACK WRONG ANSWER SCREEN-->
-                <div class="questions-container">
-                    <section id="answer-evaluator">
+                    <section id="summary" class="hidden">
                         <div class="main">
-                            <h1 class="question">Your answer for the capital of New York is:</h1>
+                            <h1>question</h1>
                         </div>
                         <div class="answer">
-                            <p>Small mistake, the correct answer for the State of New York is Albany.</p>
-                        </div>
-                        <button id="btnNext" class="btn next"> Next Question </button>
-                    </section>
-                </div>
-
-                <!--SUMMARY SCREEN-->
-                <div class="questions-container">
-                    <section id="summary">
-                        <div class="main">
-                            <h1 class="question">So, how did you do in the quizz?</h1>
-                        </div>
-                        <div class="answer">
-                            <p class="answer">Your final score is <b> 6 answers right </b> out of 10 questions!</p>
+                            <p class="answer">Your final score is 5 right out of 10 questions!</p>
                         </div>
                         <button id="btnRestart" class="btn restart"> Restart Quizz </button>
                     </section>
+
                 </div>
             </form>
 
         </main>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="quizz.js" type="module"></script>
 </body>
 
 </html>

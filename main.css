@@ -17,7 +17,6 @@ body {
 }
 
 .header-container h1 {
-    /*border: solid 1px yellow;*/
     color: #FFFFFF;
     font-weight: 100;
     size: 42px;
@@ -25,8 +24,7 @@ body {
     align-self: center;
 }
 
-.main-content {
-    width: 70%;
+.container {
     display: flex;
     flex-direction: column; /*main axis is vertical*/
     margin: auto;
@@ -39,15 +37,14 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     margin: 40px auto 0px auto;
-    width: 300px;
+    width: 400px;
+    min-width: 300px;
 }
 
 .questions-container {
-    border: 1px solid grey;
+    border: 2px solid #6482FB;
     border-radius: 5px;
-    height: 400px;
-    width: 80%;
-    min-width: 325px;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
