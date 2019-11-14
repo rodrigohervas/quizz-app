@@ -1,6 +1,6 @@
 # US States Capitals Quizz App
 
-This is an app to quizz you on your US State capitals knowledge. 
+This is an app to quiz you on your US State capitals knowledge. 
 
 The technologies used to build this app are: HTML, CSS, JavaScript, jQuery
 
