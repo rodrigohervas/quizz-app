@@ -195,7 +195,8 @@ function generateHTMLQuestion(question) {
     let options = ``;
     question.otherAnswers.forEach(element =>
         options += `<div class="option">
-                        <input type="radio" name="answer" value="${element.id}" required> ${element.capital}
+                        <input type="radio" name="answer" id="radio${element.id}" value="${element.id}" required> 
+                        <label for="radio${element.id}">${element.capital}</label>
                     </div>`
     );
 
@@ -210,7 +211,7 @@ function generateHTMLAnswer(question, answerRight) {
 
     //Add question
     let currentQuestion = $('section#answer-evaluator').find('.main');
-    currentQuestion.html(`<h1 class="question">Your answer for the capital of ${question.state} is:</h1>`);
+    currentQuestion.html(`<h1 class="question">Let's see how you did for the capital of ${question.state}:</h1>`);
 
     //Add response
     let answer = $('section#answer-evaluator').find('.answer');
