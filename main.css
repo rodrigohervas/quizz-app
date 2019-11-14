@@ -37,14 +37,13 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     margin: 40px auto 0px auto;
-    width: 400px;
-    min-width: 300px;
+    
+    min-width: 320px;
 }
 
 .questions-container {
     border: 2px solid #6482FB;
     border-radius: 5px;
-    min-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
